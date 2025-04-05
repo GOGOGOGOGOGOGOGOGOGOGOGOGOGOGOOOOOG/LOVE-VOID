@@ -32,9 +32,10 @@
         #loadingBar {
             width: 300px;
             height: 20px;
-            background-color: #333;
+            background-color: #000; /* Loading bar is now black */
             border-radius: 10px;
             overflow: hidden;
+            margin: 0 auto; /* Center the loading bar horizontally */
         }
         #progressBar {
             width: 0%;
@@ -59,30 +60,29 @@
     <script>
         const progressBar = document.getElementById('progressBar');
         let progress = 0;
-        let startTime = performance.now(); // Start time for speed calculation
+        let startTime = performance.now();
 
         function updateProgress() {
             let now = performance.now();
             let elapsedTime = now - startTime;
-            let speed = 100 /7000; // Expected progress per millisecond (7 seconds total)
+            let speed = 100 / 7000;
 
-            // Simulate network slowdown (adjust factor as needed)
-            let networkSpeedFactor = Math.random() * 0.5 + 0.75; // 0.75-1.25 range.
+            let networkSpeedFactor = Math.random() * 0.5 + 0.75;
 
             progress += speed * elapsedTime * networkSpeedFactor;
-            progress = Math.min(progress, 100); // Ensure progress doesn't exceed 100%
+            progress = Math.min(progress, 100);
 
             progressBar.style.width = progress + '%';
 
             if (progress < 100) {
                 startTime = now;
-                requestAnimationFrame(updateProgress); // Continue animation
+                requestAnimationFrame(updateProgress);
             } else {
                 window.location.href = "/1/index.html";
             }
         }
 
-        updateProgress(); // Start the animation
+        updateProgress();
     </script>
 </body>
 </html>

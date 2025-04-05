@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void Network Hub</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .hub-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #282828;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hub-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hub-header img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .hub-item {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .hub-item:hover {
+            transform: translateY(-5px);
+            background-color: #444;
+        }
+
+        .hub-item img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .hub-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            margin: 0 10px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #444;
+        }
+
+        .nav-button img {
+            width: 30px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hub-container">
+        <div class="hub-header">
+            <img src="images/LOVEVOIDNEWLOGO.png" alt="Void Network Logo">
+            <h1>Void Network Hub</h1>
+        </div>
+        <div class="nav-buttons">
+            <a href="search/index.html" class="nav-button">
+                <span>Search button</span>
+            </a>
+            <a href="s/index.html" class="nav-button">
+                <span>Settings button</span>
+            </a>
+            <a href="g/index.html" class="nav-button">
+                <img src="images/LOVEVOIDNEWLOGO.png" alt="Game Icon">
+                <span>Game button</span>
+            </a>
+        </div>
+        <div class="hub-grid">
+            <div class="hub-item">
+                <img src="images/LOVEVOIDNEWLOGO.png" alt="App 1 Icon">
+                <h3>App 1</h3>
+                <p>Description of App 1</p>
+                <a href="#">Launch</a>
+            </div>
+            <div class="hub-item">
+                <img src="images/LOVEVOIDNEWLOGO.png" alt="App 2 Icon">
+                <h3>App 2</h3>
+                <p>Description of App 2</p>
+                <a href="#">Launch</a>
+            </div>
+            <div class="hub-item">
+                <img src="images/LOVEVOIDNEWLOGO.png" alt="App 3 Icon">
+                <h3>App 3</h3>
+                <p>Description of App 3</p>
+                <a href="#">Launch</a>
+            </div>
+            <div class="hub-item">
+                <img src="images/LOVEVOIDNEWLOGO.png" alt="App 4 Icon">
+                <h3>App 4</h3>
+                <p>Description of App 4</p>
+                <a href="#">Launch</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

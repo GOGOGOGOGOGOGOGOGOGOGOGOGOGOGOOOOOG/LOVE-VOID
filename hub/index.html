@@ -1,118 +1,122 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Void Network Hub</title>
-     <style>
-         body {
-             font-family: sans-serif;
-             margin: 0;
-             padding: 0;
-             background-color: #1a1a1a;
-             color: white;
-             display: flex; /* Use flexbox for layout */
-             position: relative; /* Needed for absolute positioning of image */
-         }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Void Network Hub</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex; /* Use flexbox for layout */
+            position: relative; /* Needed for absolute positioning of image */
+        }
 
-         .background-logo {
-             position: fixed;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             z-index: -1; /* Place behind sidebar */
-             opacity: 0.5; /* Optional: Adjust opacity */
-             object-fit: contain; /* Or 'cover', 'fill', etc. */
-         }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place behind sidebar */
+            opacity: 0.5; /* Optional: Adjust opacity */
+            object-fit: cover; /* Or 'contain', 'fill', etc. */
+            background-image: url('../images/image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-         .sidebar {
-             width: 60px; /* Initial width */
-             background-color: #282828;
-             transition: width 0.3s ease;
-             overflow: hidden; /* Hide text when collapsed */
-             display: flex;
-             flex-direction: column;
-             align-items: center; /* Center items horizontally */
-             padding-top: 20px;
-         }
+        .sidebar {
+            width: 60px; /* Initial width */
+            background-color: #282828;
+            transition: width 0.3s ease;
+            overflow: hidden; /* Hide text when collapsed */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            padding-top: 20px;
+        }
 
-         .sidebar.expanded {
-             width: 200px; /* Expanded width */
-         }
+        .sidebar.expanded {
+            width: 200px; /* Expanded width */
+        }
 
-         .sidebar a {
-             padding: 10px;
-             text-decoration: none;
-             color: white;
-             display: flex;
-             align-items: center; /* Center items vertically */
-             margin-bottom: 10px;
-         }
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin-bottom: 10px;
+        }
 
-         .sidebar a img {
-             width: 30px;
-             margin-right: 0; /* No margin when collapsed */
-             transition: margin-right 0.3s ease;
-         }
+        .sidebar a img {
+            width: 30px;
+            margin-right: 0; /* No margin when collapsed */
+            transition: margin-right 0.3s ease;
+        }
 
-         .sidebar.expanded a img {
-             margin-right: 10px; /* Add margin when expanded */
-         }
+        .sidebar.expanded a img {
+            margin-right: 10px; /* Add margin when expanded */
+        }
 
-         .sidebar a span {
-             white-space: nowrap; /* Prevent text wrapping */
-             opacity: 0; /* Hide text when collapsed */
-             transition: opacity 0.3s ease;
-         }
+        .sidebar a span {
+            white-space: nowrap; /* Prevent text wrapping */
+            opacity: 0; /* Hide text when collapsed */
+            transition: opacity 0.3s ease;
+        }
 
-         .sidebar.expanded a span {
-             opacity: 1; /* Show text when expanded */
-         }
+        .sidebar.expanded a span {
+            opacity: 1; /* Show text when expanded */
+        }
 
-         .content {
-             flex-grow: 1; /* Allow content to take remaining space */
-             display: flex;
-             justify-content: center;
-             align-items: center;
-         }
+        .content {
+            flex-grow: 1; /* Allow content to take remaining space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-         .toggle-btn {
-             background: none;
-             border: none;
-             color: white;
-             font-size: 1.5em;
-             cursor: pointer;
-             align-self: flex-start; /* Place button at the top */
-             padding: 10px;
-         }
-     </style>
- </head>
- <body>
-     <img src="../images/LOVEVOIDNEWLOGO.png" alt="Void Network Logo" class="background-logo">
-     <div class="sidebar" id="sidebar">
-         <button class="toggle-btn" id="toggleBtn">&#9776;</button>
-         <a href="search/index.html">
-             <img src="../images/search.png" alt="Search">
-             <span>Search</span>
-         </a>
-         <a href="s/index.html">
-             <img src="images/settings_icon.png" alt="Settings">
-             <span>Settings</span>
-         </a>
-         <a href="g/index.html">
-             <img src="../images/LOVEVOIDNEWLOGO.png" alt="Game">
-             <span>Game</span>
-         </a>
-     </div>
-     <div class="content"></div>
-     <script>
-         const sidebar = document.getElementById('sidebar');
-         const toggleBtn = document.getElementById('toggleBtn');
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            align-self: flex-start; /* Place button at the top */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn">&#9776;</button>
+        <a href="search/index.html">
+            <img src="../images/search.png" alt="Search">
+            <span>Search</span>
+        </a>
+        <a href="s/index.html">
+            <img src="images/settings_icon.png" alt="Settings">
+            <span>Settings</span>
+        </a>
+        <a href="g/index.html">
+            <img src="../images/LOVEVOIDNEWLOGO.png" alt="Game">
+            <span>Game</span>
+        </a>
+    </div>
+    <div class="content"></div>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
 
-         toggleBtn.addEventListener('click', () => {
-             sidebar.classList.toggle('expanded');
-         });
-     </script>
- </body>
- </html>
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>

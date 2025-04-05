@@ -1,297 +1,88 @@
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
-
-  * {
-    font-family: "Be Vietnam Pro", sans-serif;
-  }
-
-  .h1_title {
-    color: white;
-    font-size: 9rem;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .allDiv {
-    z-index: 99999999999999999999999999999999999999999999999999999999;
-  }
-
-  .subtitle {
-    color: white;
-    font-size: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 2rem;
-  }
-
-  body {
-    background-color: rgb(30, 30, 30);
-    overflow-y: scroll !important;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .button_redir_div {
-    text-align: center;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    top: 50%;
-    z-index: 100;
-  }
-
-  .button_redir {
-    background-color: rgb(37, 37, 37);
-    border: 0.2rem solid;
-    padding: 1rem 1rem;
-    font-size: 2rem;
-    color: white;
-    border-color: rgb(27, 27, 27);
-    border-radius: 5rem;
-    width: 10rem;
-    height: 5rem;
-    text-align: center;
-  }
-
-  .button_redir:hover {
-    transition: all 0.5s ease-in;
-    background-color: rgb(99, 99, 99);
-  }
-
-  .bdiv {
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    z-index: -1;
-  }
-
-  .settingswidget {
-    border: 1px rgb(61, 61, 61);
-    background-color: rgb(65, 65, 65);
-    border-radius: 4vh;
-    color: white;
-    padding: 2vh 2vw;
-    width: 20%;
-    font-family: sans-serif;
-  }
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #343434;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  input:checked + .slider {
-    background-color: #111111;
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #111111;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-  .div_tab {
-    position: fixed;
-  }
-
-  /* Styles for the random game button */
-  .random-game-button {
-    display: block;
-    width: 30%;
-    padding: 1px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border: 2px solid white;
-    margin: 3vh auto;
-    border-radius: 15px;
-  }
-
-  .random-game-button:hover {
-    background-color: #45a049;
-  }
-
-  .flex-container {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 5rem;
-  }
-
-  .game {
-    border-radius: 30rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .game:hover {
-    transform: scale(1.05);
-  }
-
-  .game-image {
-    width: 288px;
-    height: 288px;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    object-fit: contain; /* Change object-fit to contain */
-    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: subtle-pulse 4s infinite;
-    animation-delay: 1s;
-  }
-
-  .game:hover .game-image {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    animation: none;
-  }
-
-  @keyframes subtle-pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.01);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  .game-info {
-    padding: 10px;
-    text-align: center;
-    background-color: #555555;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
-
-  .game-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-
-  .play-button {
-    background-color: #555555;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  .play-button:hover {
-    background-color: #454545;
-  }
-</style>
-
-<button class="random-game-button">Random Game</button>
-
-<div class="flex-container">
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 1" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 1</h2>
-      <a href="#" class="play-button">Play Now</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width:device-width, initial-scale=1.0">
+    <title>Void Network</title>
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/config.js"></script>
+    <script src="/global.js"></script>
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+    <script src="/assets/js/favicon-handler.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-814Y2X3KSF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-814Y2X3KSF');
+    </script>
+    <style id="loading-style">
+        body,html{margin:0;padding:0;width:100%;height:100%;overflow:hidden}
+        #loadingOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#000 0,#1a1a1a 100%);display:flex;justify-content:center;align-items:center;z-index:999999;}
+        #loadingContainer{text-align:center;color:#fff}
+        #loadingLogo{width:200px;height:200px;margin-bottom:30px;}
+        #loadingLogo img{
+            width: 100%;
+            height: auto;
+        }
+        #loadingText{font-size:1.5em; margin-bottom: 20px;}
+        #loadingBar {
+            width: 300px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #progressBar {
+            width: 0%;
+            height: 100%;
+            background-color: #007bff;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingOverlay">
+        <div id="loadingContainer">
+            <div id="loadingLogo">
+                <img src="/assets/logo.png" alt="Void Network Logo">
+            </div>
+            <p id="loadingText">Loading...</p>
+            <div id="loadingBar">
+                <div id="progressBar"></div>
+            </div>
+        </div>
     </div>
-  </div>
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        let progress = 0;
+        let startTime = performance.now(); // Start time for speed calculation
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 2" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 2</h2>
-      <a href="#" class="play-button">Play Now</a>
-    </div>
-  </div>
+        function updateProgress() {
+            let now = performance.now();
+            let elapsedTime = now - startTime;
+            let speed = 100 /7000; // Expected progress per millisecond (7 seconds total)
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 3" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 3</h2>
-      <a href="#" class="play-button">Play Now</a>
-    </div>
-  </div>
+            // Simulate network slowdown (adjust factor as needed)
+            let networkSpeedFactor = Math.random() * 0.5 + 0.75; // 0.75-1.25 range.
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 4" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 4</h2>
-      <a href="#" class="play-button">Play Now</a>
-    </div>
-  </div>
+            progress += speed * elapsedTime * networkSpeedFactor;
+            progress = Math.min(progress, 100); // Ensure progress doesn't exceed 100%
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 5" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 5</h2>
-      <a href="#" class="play-button">Play Now</a>
-    </div>
-  </div>
+            progressBar.style.width = progress + '%';
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 6" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 6</h2>
-      <a href="#" class="play-button">Play Now</a>
-    </div>
-  </div>
-</div>
+            if (progress < 100) {
+                startTime = now;
+                requestAnimationFrame(updateProgress); // Continue animation
+            } else {
+                window.location.href = "/1/index.html";
+            }
+        }
+
+        updateProgress(); // Start the animation
+    </script>
+</body>
+</html>

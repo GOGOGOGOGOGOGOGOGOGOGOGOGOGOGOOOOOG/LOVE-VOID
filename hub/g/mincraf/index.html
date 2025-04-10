@@ -1,299 +1,161 @@
-<script>       window.addEventListener('beforeunload', (event) => {
-           event.returnValue = 'Click cancel';
-       });</script>
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Game Links</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
 
-  * {
-    font-family: "Be Vietnam Pro", sans-serif;
-  }
-
-  .h1_title {
-    color: white;
-    font-size: 9rem;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .allDiv {
-    z-index: 99999999999999999999999999999999999999999999999999999999;
-  }
-
-  .subtitle {
-    color: white;
-    font-size: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 2rem;
-  }
-
-  body {
-    background-color: rgb(30, 30, 30);
-    overflow-y: scroll !important;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .button_redir_div {
-    text-align: center;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    top: 50%;
-    z-index: 100;
-  }
-
-  .button_redir {
-    background-color: rgb(37, 37, 37);
-    border: 0.2rem solid;
-    padding: 1rem 1rem;
-    font-size: 2rem;
-    color: white;
-    border-color: rgb(27, 27, 27);
-    border-radius: 5rem;
-    width: 10rem;
-    height: 5rem;
-    text-align: center;
-  }
-
-  .button_redir:hover {
-    transition: all 0.5s ease-in;
-    background-color: rgb(99, 99, 99);
-  }
-
-  .bdiv {
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    z-index: -1;
-  }
-
-  .settingswidget {
-    border: 1px rgb(61, 61, 61);
-    background-color: rgb(65, 65, 65);
-    border-radius: 4vh;
-    color: white;
-    padding: 2vh 2vw;
-    width: 20%;
-    font-family: sans-serif;
-  }
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #343434;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  input:checked + .slider {
-    background-color: #111111;
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #111111;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-  .div_tab {
-    position: fixed;
-  }
-
-  /* Styles for the random game button */
-  .random-game-button {
-    display: block;
-    width: 30%;
-    padding: 1px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border: 2px solid white;
-    margin: 3vh auto;
-    border-radius: 15px;
-  }
-
-  .random-game-button:hover {
-    background-color: #45a049;
-  }
-
-  .flex-container {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 5rem;
-  }
-
-  .game {
-    border-radius: 30rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .game:hover {
-    transform: scale(1.05);
-  }
-
-  .game-image {
-    width: 288px;
-    height: 288px;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    object-fit: contain; /* Change object-fit to contain */
-    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: subtle-pulse 4s infinite;
-    animation-delay: 1s;
-  }
-
-  .game:hover .game-image {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    animation: none;
-  }
-
-  @keyframes subtle-pulse {
-    0% {
-      transform: scale(1);
+    * {
+      font-family: "Be Vietnam Pro", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    50% {
-      transform: scale(1.01);
+
+    body {
+      background-color: rgb(30, 30, 30);
+      overflow-y: scroll !important;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
     }
-    100% {
-      transform: scale(1);
+
+    .flex-container {
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 5rem;
+      width: 90%; /* Adjust width as needed */
+      max-width: 1200px; /* Optional maximum width */
     }
-  }
 
-  .game-info {
-    padding: 10px;
-    text-align: center;
-    background-color: #555555;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
+    .game {
+      border-radius: 2rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      background-color: #555555; /* Add a background to the game container */
+      overflow: hidden; /* Clip image corners */
+    }
 
-  .game-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #fff;
-  }
+    .game:hover {
+      transform: scale(1.05);
+    }
 
-  .play-button {
-    background-color: #555555;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
-  }
+    .game-image {
+      width: 288px;
+      height: 288px;
+      object-fit: contain;
+      transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: subtle-pulse 4s infinite;
+      animation-delay: 1s;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
 
-  .play-button:hover {
-    background-color: #454545;
-  }
-</style>
+    .game:hover .game-image {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: none;
+    }
 
+    @keyframes subtle-pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.01);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
 
-<div class="flex-container">
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 1" class="image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 1</h2>
-      <a href="/hub/g/mincraf/1/index.html" class="play-button">#1 Play Now!</a>
+    .game-info {
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      width: 100%; /* Make info span the width */
+    }
+
+    .game-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .play-button {
+      background-color: #373737;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+      display: inline-block; /* To allow padding and rounded corners */
+    }
+
+    .play-button:hover {
+      background-color: rgb(99, 99, 99);
+    }
+  </style>
+  <script>
+    window.addEventListener('beforeunload', (event) => {
+      event.returnValue = 'Click cancel';
+    });
+
+    function createHubURL(path) {
+      const currentURL = window.location.href;
+      try {
+        const url = new URL(currentURL);
+        return `${url.origin}/hub/g/${path}`;
+      } catch (error) {
+        console.error("Error creating Hub URL:", error);
+        return '#'; // Fallback to '#' if URL parsing fails
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="flex-container">
+    <div class="game">
+      <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 1" class="game-image" />
+      <div class="game-info">
+        <h2 class="game-title">Game Title 1</h2>
+        <a class="play-button" href="/hub/g/mincraf/1/index.html" onclick="window.location.href = createHubURL('/hub/g/mincraf/1/index.html')">
+          #1 Play Now!
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 2" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 2</h2>
-      <a href="#" class="play-button">Not Available </a>
+    <div class="game">
+      <img src="https://via.placeholder.com/288x288/444444/FFFFFF?Text=Game%202" alt="Game 2" class="game-image" />
+      <div class="game-info">
+        <h2 class="game-title">Game Title 2</h2>
+        <a class="play-button" href="#" onclick="window.location.href = createHubURL('another/game/path')">
+          #2 Unavailable 
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 3" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 3</h2>
-      <a href="#" class="play-button">Not Available</a>
+    <div class="game">
+      <img src="https://via.placeholder.com/288x288/666666/EEEEEE?Text=Game%203" alt="Game 3" class="game-image" />
+      <div class="game-info">
+        <h2 class="game-title">Game Title 3</h2>
+        <a class="play-button" href="#" onclick="window.location.href = createHubURL('yet/another/path/game.html')">
+          #3 Unavailable
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 4" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 4</h2>
-      <a href="#" class="play-button">Not Available</a>
     </div>
-  </div>
-
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 5" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 5</h2>
-      <a href="#" class="play-button">Not Available</a>
-    </div>
-  </div>
-
-  <div class="game">
-    <img src="https://birminghamacademics.github.io/GAMEEXAMPLE.png" alt="Game 6" class="game-image" />
-    <div class="game-info">
-      <h2 class="game-title">Game Title 6</h2>
-      <a href="#" class="play-button">Not Available</a>
-    </div>
-  </div>
-</div>
+</body>
+</html>
